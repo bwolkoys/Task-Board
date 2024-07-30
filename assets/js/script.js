@@ -60,22 +60,44 @@ function handleAddTask(event){
     localStorage.setItem('tasks', JSON.stringify(taskList));
    // createTaskCard() 
 }
-function popUpModal(event){
-    var modal = document.getElementById("myModal");
-    var btn = document.getElementById("add_task");
+function popUpModal(event) {
+    const modal = document.getElementById("myModal");
+    const createTask = document.getElementById("createTask");
+    const closeBtn = document.querySelector('.close');
+    const taskForm = document.getElementById('taskForm');
+    createTask.addEventListener('click', () => {
+        modal.style.display = 'block';
+    });
+    closeBtn.addEventListener('click', () => {
+        modal.style.display = 'none';
+    });
+    window.addEventListener('click', (event) => {
+        if (event.target === modal) {
+            modal.style.display = 'none';
+        }
+    });
+    taskForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const taskName = document.getElementById('taskName').value;
+        tasks.push({tasks: taskName});
+        taskForm.reset();
+        modal.style.display = 'none';
+        renderTaskList();
+    });
+}
     //var span = document.getElementsByClassName("close")[0];
     //btn.onclick = function() {
-        modal.style.display = "block";
+        //modal.style.display = "block";
      // }
      /*span.onclick = function() {
         modal.style.display = "none";
-      }*/
+      }
       window.onclick = function(event) {
         if (event.target == modal) {
           modal.style.display = "none";
         }
       }
-}
+}*/
 
 // Todo: create a function to handle deleting a task
 function handleDeleteTask(event){
@@ -91,4 +113,5 @@ function handleDrop(event, ui) {
 $(document).ready(function () {
     document.getElementById("add_task").addEventListener("click", popUpModal);
     document.getElementById("createTask").addEventListener("click", handleAddTask);
-});
+}); 
+
