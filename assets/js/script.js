@@ -12,9 +12,6 @@ function generateTaskId() {
 
 // Todo: create a function to create a task card
 function createTaskCard(task) {
-    let deadlineDate = "Deadline Date"
-    let title = document.getElementById("taskName").value;
-    let description = "Description"
     let div = document.createElement("div");
     let h3 = document.createElement("h3");
     let p1 = document.createElement("p");
@@ -38,6 +35,19 @@ function renderTaskList() {
 
 // Todo: create a function to handle adding a new task
 function handleAddTask(event){
+    let deadlineDate = document.getElementById("deadlineDate").value;
+    let title = document.getElementById("taskName").value;
+    console.log(title);
+    let description = document.getElementById("description").value;
+    let task = {} 
+    task.title = title
+    task.deadlineDate = deadlineDate
+    task.description = description 
+    taskList.push(task);
+    localStorage.setItem('tasks', JSON.stringify(taskList));
+   // createTaskCard() 
+}
+function popUpModal(event){
     var modal = document.getElementById("myModal");
     var btn = document.getElementById("add_task");
     //var span = document.getElementsByClassName("close")[0];
@@ -46,13 +56,12 @@ function handleAddTask(event){
      // }
      /*span.onclick = function() {
         modal.style.display = "none";
-      }
+      }*/
       window.onclick = function(event) {
         if (event.target == modal) {
           modal.style.display = "none";
         }
-      }*/
-   // createTaskCard() 
+      }
 }
 
 // Todo: create a function to handle deleting a task
@@ -67,6 +76,6 @@ function handleDrop(event, ui) {
 
 // Todo: when the page loads, render the task list, add event listeners, make lanes droppable, and make the due date field a date picker
 $(document).ready(function () {
-    document.getElementById("add_task").addEventListener("click", handleAddTask);
-    document.getElementById("createTask").addEventListener("click", createTaskCard);
+    document.getElementById("add_task").addEventListener("click", popUpModal);
+    document.getElementById("createTask").addEventListener("click", handleAddTask);
 });
