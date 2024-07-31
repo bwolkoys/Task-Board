@@ -22,26 +22,29 @@
   </header>
   <div class="container">
     <div class="text-center mb-5">
-      <button id="add_task" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#formModal">Add Task</button>
+     <!-- <button id="add_task" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#formModal">Add Task</button> -->
+     <button id="add_task" class="btn btn-success">Add Task</button>
     </div>
     <!-- Todo: Create a modal with a form to add tasks -->
 
-    <button id="myBtn">Add Task</button>
     <div id="myModal" class="modal">
     <div class="modal-content">
       <span class="close">&times;</span>
+      <h2>Add Task</h2>
+      <form id="taskForm">
       <p><label for="taskName">Task Name:</label>
         <input type="text" id="taskName" name="taskName" required>
         <label for="description">Description:</label>
         <textarea id="description" name="description"></textarea>
         <label for="deadlineDate">Deadline Date:</label>
         <input type="date" id="deadlineDate" name="deadlineDate">
-        <button id="createTask" type="submit">Add Task</button></p>
-  </div>
+        <button id="createTask">Add Task</button></p>
+      </form>
+  </div> 
 
 </div>
 
-   <!-- <div id="myModal" class="modal">
+   <!--<div id="myModal" class="modal">
       <div class="modal-content">
           <span class="close">&times;</span>
           <h2>Add Task</h2>
@@ -55,9 +58,9 @@
               <button id="createTask" type="submit">Add Task</button>
           </form>
       </div>
-  </div>
+  </div> -->
         </form>
-      </div> -->
+      </div>
     </div>
     <div class="row swim-lanes text-center justify-content-between">
       <div class="col-12 col-lg-4 d-flex">
