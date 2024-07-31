@@ -21,7 +21,9 @@ function createTaskCard(task) {
     p1.textContent = task.description 
     p2.textContent = task.deadlineDate
     button.textContent = "Delete"
+    button.addEventListener("click", handleDeleteTask);
     div.classList.add('task-card');
+    div.id = task.id
     div.appendChild(h3);
     div.appendChild(p1);
     div.appendChild(p2);
@@ -51,7 +53,9 @@ function handleAddTask(event){
     let title = document.getElementById("taskName").value;
     console.log(title);
     let description = document.getElementById("description").value;
+    let id = generateTaskId ()
     let task = {} 
+    task.id = id
     task.title = title
     task.deadlineDate = deadlineDate
     task.description = description 
@@ -64,7 +68,18 @@ function handleAddTask(event){
 
 // Todo: create a function to handle deleting a task
 function handleDeleteTask(event){
-    
+    console.log(event.target.parentElement.id);
+    let id = event.target.parentElement.id
+    let index = 0
+    let target = 0
+    const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+    tasks.forEach(task =>{
+        if (task.id == id) {
+            target = index 
+        }
+        index ++
+    })
+    //tasks.splice (look it up)
 }
 
 // Todo: create a function to handle dropping a task into a new status lane
