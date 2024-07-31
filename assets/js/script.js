@@ -79,7 +79,9 @@ function handleDeleteTask(event){
         }
         index ++
     })
-    //tasks.splice (look it up)
+    tasks.splice (target, 1)
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+    renderTaskList();
 }
 
 // Todo: create a function to handle dropping a task into a new status lane

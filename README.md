@@ -27,5 +27,6 @@
 ## Resources 
 
 - Help with modal: https://www.w3schools.com/howto/howto_css_modals.asp 
+- to help use splice(): https://www.w3schools.com/jsref/jsref_splice.asp 
 
 ## Deployed Link
