@@ -28,5 +28,8 @@
 
 - Help with modal: https://www.w3schools.com/howto/howto_css_modals.asp 
 - to help use splice(): https://www.w3schools.com/jsref/jsref_splice.asp 
+- Used Xpert learning for "function generateTaskId()
+- https://developer.mozilla.org/en-US/docs/Web/API/Node/appendChild 
+- https://www.w3schools.com/js/js_json_parse.asp 
 
 ## Deployed Link
